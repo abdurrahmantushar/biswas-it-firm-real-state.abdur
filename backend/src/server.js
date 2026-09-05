@@ -11,12 +11,10 @@ const app = express();
 
 app.use(
     cors({
-        origin: [
-            "https://biswas-it-firm-real-state-abdur-jhu.vercel.app",
-            "http://localhost:5173",
-        ],
+        origin: "https://biswas-it-firm-real-state-abdur-jhu.vercel.app",
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ["Content-Type", "Authorization"],
+        optionsSuccessStatus: 204,
     })
 );
 
