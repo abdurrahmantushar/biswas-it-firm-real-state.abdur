@@ -1,5 +1,5 @@
 import express from "express";
-import { prisma } from "../server.js";
+import FromData from "../model/from-mdel.js";
 
 export const router = express.Router();
 
@@ -14,14 +14,12 @@ router.post("/", async (req, res) => {
             });
         }
 
-        const formData = await prisma.fromdata.create({
-            data: {
-                name,
-                email,
-                phone,
-                apartmentType,
-                message,
-            },
+        const formData = await FromData.create({
+            name,
+            email,
+            phone,
+            apartmentType,
+            message,
         });
 
         return res.status(201).json({
@@ -40,11 +38,7 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
     try {
-        const formData = await prisma.fromdata.findMany({
-            orderBy: {
-                createdAt: "desc",
-            },
-        });
+        const formData = await FromData.find().sort({ createdAt: -1 });
 
         return res.status(200).json({
             success: true,

@@ -1,12 +1,14 @@
+import dns from "node:dns";
+
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
-import { PrismaMariaDb } from "@prisma/adapter-mariadb";
-import { PrismaClient } from "../generated/prisma/client.ts";
+import mongoose from "mongoose";
 
 import { router as fromDataRouter } from "./api/FromDataApi.js";
 import { router as adminRouter } from "./api/AdminApi.js";
 
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 const app = express();
 
 app.use(
@@ -20,17 +22,15 @@ app.use(
 
 app.use(express.json());
 
-const adapter = new PrismaMariaDb(process.env.DATABASE_URL);
+mongoose
+    .connect(process.env.MONGODB_URI)
+    .then(() => {
+        console.log("MongoDB connected successfully");
 
-export const prisma = new PrismaClient({
-    adapter,
-});
-
-app.get("/", (req, res) => {
-    res.json({
-        message: "Real Estate Lead Generation API is running",
+    })
+    .catch((error) => {
+        console.error("MongoDB connection failed:", error);
     });
-});
 
 app.use("/api/from-data", fromDataRouter);
 app.use("/api/admin", adminRouter);
