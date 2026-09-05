@@ -1,6 +1,8 @@
-import jwt from "jsonwebtoken";
+import express from "express";
 
-export const adminLogin = async (req, res) => {
+export const router = express.Router();
+
+router.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -21,26 +23,14 @@ export const adminLogin = async (req, res) => {
             });
         }
 
-        const token = jwt.sign(
-            {
-                email: process.env.ADMIN_EMAIL,
-                role: "admin",
-            },
-            process.env.JWT_SECRET,
-            {
-                expiresIn: "7d",
-            }
-        );
-
         return res.status(200).json({
             success: true,
-            message: "Login successful",
-            token,
+            message: "Admin login successful",
         });
     } catch (error) {
         return res.status(500).json({
             success: false,
-            message: "Something went wrong",
+            message: "Server error",
         });
     }
-};
+});

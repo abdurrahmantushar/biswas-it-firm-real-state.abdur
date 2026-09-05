@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
             });
         }
 
-        const formData = await prisma.fromData.create({
+        const formData = await prisma.fromdata.create({
             data: {
                 name,
                 email,

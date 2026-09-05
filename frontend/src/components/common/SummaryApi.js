@@ -7,11 +7,12 @@ export const SummaryApi = {
   },
 
   get_fromData: {
-    url: "/api/get-from-data",
+    url: "/api/from-data",
     method: "get",
   },
+  
   admin_login : {
-    url : '/api/admin',
+    url : '/api/admin/login',
     method : 'post'
   }
 };
