@@ -1,10 +1,18 @@
-import Photo1 from "../../assets/GallerySection/photo1.jpg";
-import Photo2 from "../../assets/GallerySection/photo2.jpg";
-import Photo3 from "../../assets/GallerySection/photo3.jpg";
-import Photo4 from "../../assets/GallerySection/photo4.jpg";
-import Photo5 from "../../assets/GallerySection/photo5.jpg";
-import Photo6 from "../../assets/GallerySection/photo6.jpg";
-import Photo7 from "../../assets/GallerySection/photo7.jpg";
+import Photo1 from '../../assets/gallery/photo1.jpg'
+import Photo2 from '../../assets/gallery/photo2.jpg'
+import Photo3 from '../../assets/gallery/photo3.jpg'
+import Photo4 from '../../assets/gallery/photo4.jpg'
+import Photo5 from '../../assets/gallery/photo5.jpg'
+import Photo6 from '../../assets/gallery/photo6.jpg'
+import Photo7 from '../../assets/gallery/photo7.jpg'
+
+// import Photo1 from "../../assets/GallerySection/photo1.jpg";
+// import Photo2 from "../../assets/GallerySection/photo2.jpg";
+// import Photo3 from "../../assets/GallerySection/photo3.jpg";
+// import Photo4 from "../../assets/GallerySection/photo4.jpg";
+// import Photo5 from "../../assets/GallerySection/photo5.jpg";
+// import Photo6 from "../../assets/GallerySection/photo6.jpg";
+// import Photo7 from "../../assets/GallerySection/photo7.jpg";
 
 import { ArrowRight } from "lucide-react";
 import { HeadingAnimation, Reveal } from "../animations/Reveal";
